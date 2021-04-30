@@ -1,0 +1,10 @@
+@import "./details.css";
+
+.container__title {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0.25rem;
+}

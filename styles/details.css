@@ -1,0 +1,16 @@
+.choices {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.options {
+    margin: 1em;
+    border-radius: .5em;
+    border: .2em solid black;
+    padding: 1.5em
+}
+
+
+.choice__list__item {
+    margin: .3em
+}

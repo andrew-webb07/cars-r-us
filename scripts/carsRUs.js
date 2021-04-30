@@ -2,18 +2,23 @@ import {Colors} from "./Colors.js"
 import {Interiors} from "./Interiors.js"
 import {Technologies} from "./Technologies.js"
 import {Wheels} from "./Wheels.js"
+import {addCustomOrder} from "./database.js"
+import {Orders} from "./Orders.js"
 
 
 
 document.addEventListener(
     "click",
     (event) => {
+        if(event.target.id === "orderButton") {
+            addCustomOrder()
+        }
     }
 )
 
 export const CarsRUs = () => {
     return `
-        <h1>Cars-R-Us</h1>
+        <h1 class="container__title">Cars-R-Us</h1>
 
         <article class="choices">
             <section class="choices__colors options">
@@ -39,7 +44,8 @@ export const CarsRUs = () => {
         </article>
 
         <article class="customOrders">
-            <h2>Custom Jewelry Orders</h2>
+            <h2>Custom Car Orders</h2>
+            ${Orders()}
         </article>
     `
 }
