@@ -1,11 +1,20 @@
-import { getCustomOrders, getCarColors, getInteriors, getTechnologies,getWheels} from "./database.js"
+import { getCustomOrders, getCarColors, getInteriors, getTechnologies,getWheels, getVehicleTypes} from "./database.js"
 
 const carColors = getCarColors()
 const interiors = getInteriors()
 const technologies = getTechnologies()
 const wheels = getWheels()
+const vehicleTypes = getVehicleTypes()
 
 
+// document.addEventListener(
+//     "click",
+//     (event) => {
+//         if(event.target.id === "orderButton") {
+//             addCustomOrder()
+//         }
+//     }
+// )
 
 
 const buildOrderListItem = (order) => {
@@ -18,10 +27,23 @@ const buildOrderListItem = (order) => {
 
     const foundWheels = wheels.find(wheel => wheel.id === order.wheelsId)
 
-    const orderTotalPrice = foundCarColor.price + foundInterior.price + foundTechnology.price + foundWheels.price
+    const foundVehicleType = vehicleTypes.find(vehicleType => vehicleType.id === order.vehicleTypeId)
 
+    let orderTotalPrice = foundCarColor.price + foundInterior.price + foundTechnology.price + foundWheels.price
 
-    return `<li>Order #${order.id} costs $${orderTotalPrice}</li>`
+    if (foundVehicleType.id === 2) {
+        orderTotalPrice = orderTotalPrice * 1.5
+    }
+    else if (foundVehicleType.id === 3) {
+        orderTotalPrice = orderTotalPrice * 2.25
+    }
+
+    const costString = orderTotalPrice.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+      })
+
+    return `<li>Order #${order.id} costs ${costString}</li>`
 }
 
 export const Orders = () => {

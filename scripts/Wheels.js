@@ -11,6 +11,8 @@ document.addEventListener(
     }
 )
 
+
+
 export const Wheels = () => {
     let html = "<ul>"
 

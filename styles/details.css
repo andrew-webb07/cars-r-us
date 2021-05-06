@@ -14,3 +14,8 @@
 .choice__list__item {
     margin: .3em
 }
+
+
+.vehicleType__types {
+    display: flex;
+}
