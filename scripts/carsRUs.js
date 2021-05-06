@@ -4,6 +4,7 @@ import {Technologies} from "./Technologies.js"
 import {Wheels} from "./Wheels.js"
 import {addCustomOrder} from "./database.js"
 import {Orders} from "./Orders.js"
+import { VehicleTypes } from "./VehicleTypes.js"
 
 
 
@@ -36,6 +37,10 @@ export const CarsRUs = () => {
             <section class="choices__wheels options">
                 <h2>Wheels</h2>
                 ${Wheels()}
+            </section>
+            <section class="choices__vehicleTypes options">
+            <h2>Vehicle Type</h2>
+            ${VehicleTypes()}
             </section>
         </article>
 

@@ -24,6 +24,11 @@ const database = {
         {id: 3, size: 18, type: "Spoke", color: "Silver", price: 1500},
         {id: 4, size: 18, type: "Spoke", color: "Black", price: 2000}
     ],
+    vehicleTypes: [
+        { id: 1, type: "Car"},
+        { id: 2, type: "SUV"},
+        { id: 3, type: "Truck"}
+    ],
     customOrders: [
         // {
         //     id: 1,
@@ -56,6 +61,14 @@ export const getWheels = () => {
     return [...database.wheels]
 }
 
+export const getVehicleTypes = () => {
+    return [...database.vehicleTypes]
+}
+
+export const setVehicleType = (id) => {
+    database.orderBuilder.vehicleTypeId = id
+}
+
 export const setCarColor = (id) => {
     database.orderBuilder.carColorId = id
 }
@@ -77,6 +90,9 @@ export const addCustomOrder = () => {
 
     const totalCustomOrders = database.customOrders.length
 
+    // database.orders.length > 0 ?
+    
+    
     if (totalCustomOrders < 1) {
         newOrder.id = 1
     } else {newOrder.id = [...database.customOrders].pop().id + 1}
